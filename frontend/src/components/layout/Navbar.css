@@ -1,0 +1,211 @@
+/* =========================================
+   NAVBAR — Premium Glassmorphism
+   ========================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(135, 206, 235, 0.2);
+  box-shadow: 0 1px 20px rgba(58, 155, 196, 0.06);
+  transition: box-shadow 0.3s;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.logo-icon {
+  color: var(--sky-blue-deep);
+  filter: drop-shadow(0 0 6px rgba(58, 155, 196, 0.35));
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--sky-blue-deep);
+  border-radius: 2px;
+  transition: width 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--sky-blue-deep);
+  background: rgba(135, 206, 235, 0.08);
+}
+
+.nav-links a:hover::after {
+  width: 60%;
+}
+
+/* Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: var(--text-dark);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.icon-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--sky-blue-deep);
+  transform: translateY(-1px);
+}
+
+/* Cart badge */
+.cart-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: linear-gradient(135deg, var(--sky-blue-deep), var(--sky-blue-dark));
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+  box-shadow: 0 2px 6px rgba(58, 155, 196, 0.4);
+}
+
+/* Mobile toggle */
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive mobile menu */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(16px);
+    padding: 20px 28px;
+    gap: 4px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    z-index: 199;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* User dropdown */
+.user-menu-wrap {
+  position: relative;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.14);
+  min-width: 190px;
+  padding: 8px;
+  z-index: 300;
+  border: 1px solid var(--border);
+  animation: fadeIn 0.18s ease;
+}
+
+.user-dropdown-name {
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 6px;
+}
+
+.user-dropdown a,
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+  font-family: var(--font-sans);
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+  background: var(--bg-subtle);
+  color: var(--sky-blue-deep);
+}

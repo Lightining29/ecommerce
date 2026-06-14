@@ -1,0 +1,59 @@
+:root{
+  --accent-1: #7c3aed;
+  --accent-2: #60a5fa;
+  --muted: #6b7280;
+}
+
+/* Simple reveal for sections */
+.reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2,.9,.2,1), transform .6s cubic-bezier(.2,.9,.2,1); will-change: opacity, transform; }
+.reveal.visible{ opacity:1; transform: none; }
+
+/* Compatibility for older components that use animate-in */
+.animate-in{ opacity:0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+.animate-in.visible{ opacity:1; transform: none; }
+
+/* Staggered reveal for grids */
+.stagger .product-card,
+.stagger .category-card{ opacity:0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2,.9,.2,1), transform .6s cubic-bezier(.2,.9,.2,1); }
+.stagger.visible .product-card,
+.stagger.visible .category-card{ opacity:1; transform: none; }
+
+/* per-item delays (up to 12) */
+.stagger.visible .product-card:nth-child(1){ transition-delay: 0.02s; }
+.stagger.visible .product-card:nth-child(2){ transition-delay: 0.06s; }
+.stagger.visible .product-card:nth-child(3){ transition-delay: 0.10s; }
+.stagger.visible .product-card:nth-child(4){ transition-delay: 0.14s; }
+.stagger.visible .product-card:nth-child(5){ transition-delay: 0.18s; }
+.stagger.visible .product-card:nth-child(6){ transition-delay: 0.22s; }
+.stagger.visible .product-card:nth-child(7){ transition-delay: 0.26s; }
+.stagger.visible .product-card:nth-child(8){ transition-delay: 0.30s; }
+.stagger.visible .product-card:nth-child(9){ transition-delay: 0.34s; }
+.stagger.visible .product-card:nth-child(10){ transition-delay: 0.38s; }
+.stagger.visible .product-card:nth-child(11){ transition-delay: 0.42s; }
+.stagger.visible .product-card:nth-child(12){ transition-delay: 0.46s; }
+
+.stagger.visible .category-card:nth-child(1){ transition-delay: 0.02s; }
+.stagger.visible .category-card:nth-child(2){ transition-delay: 0.06s; }
+.stagger.visible .category-card:nth-child(3){ transition-delay: 0.10s; }
+.stagger.visible .category-card:nth-child(4){ transition-delay: 0.14s; }
+.stagger.visible .category-card:nth-child(5){ transition-delay: 0.18s; }
+.stagger.visible .category-card:nth-child(6){ transition-delay: 0.22s; }
+.stagger.visible .category-card:nth-child(7){ transition-delay: 0.26s; }
+.stagger.visible .category-card:nth-child(8){ transition-delay: 0.30s; }
+.stagger.visible .category-card:nth-child(9){ transition-delay: 0.34s; }
+.stagger.visible .category-card:nth-child(10){ transition-delay: 0.38s; }
+.stagger.visible .category-card:nth-child(11){ transition-delay: 0.42s; }
+.stagger.visible .category-card:nth-child(12){ transition-delay: 0.46s; }
+
+/* subtle hover lift for cards */
+.product-card, .category-card{ transition: transform .28s ease, box-shadow .28s ease; }
+.product-card:hover, .category-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(14,42,74,0.10); }
+
+/* Small entrance for inline elements */
+.fade-up{ opacity:0; transform: translateY(8px); transition: opacity .45s ease, transform .45s ease; }
+.fade-up.visible{ opacity:1; transform:none; }
+
+/* Responsive tweaks */
+@media (prefers-reduced-motion: reduce){
+  .reveal, .animate-in, .stagger .product-card, .stagger .category-card, .fade-up{ transition: none !important; transform: none !important; opacity: 1 !important; }
+}

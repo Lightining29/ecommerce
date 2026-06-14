@@ -1,0 +1,62 @@
+/* =========================================
+   TRUST BAR — Animated Scrolling Strip
+   ========================================= */
+.trust-bar {
+  background: linear-gradient(135deg, var(--text-dark) 0%, #2A3F54 100%);
+  padding: 14px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.trust-bar::before,
+.trust-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+}
+
+.trust-bar::before {
+  left: 0;
+  background: linear-gradient(90deg, #1A2B3C, transparent);
+}
+
+.trust-bar::after {
+  right: 0;
+  background: linear-gradient(-90deg, #1A2B3C, transparent);
+}
+
+.trust-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.trust-track:hover {
+  animation-play-state: paused;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 36px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.83rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trust-item svg {
+  color: var(--sky-blue-light);
+  flex-shrink: 0;
+}
