@@ -1,0 +1,27 @@
+# Render deploy configuration for a monorepo with frontend and backend
+# Note: Do NOT store secrets here. Configure MONGODB_URI and other secrets in the Render dashboard.
+
+services:
+  - type: web
+    name: glowora-backend
+    env: docker
+    dockerfilePath: backend/Dockerfile
+    branch: main
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "5000"
+      - key: MONGODB_URI
+        value: "" # set via Render dashboard (secret)
+      - key: NODE_ENV
+        value: "production"
+
+  - type: web
+    name: glowora-frontend
+    env: docker
+    dockerfilePath: frontend/Dockerfile
+    branch: main
+    autoDeploy: true
+    envVars:
+      - key: VITE_API_URL
+        value: "" # set to backend URL (e.g. https://glowora-backend.onrender.com) in Render dashboard
